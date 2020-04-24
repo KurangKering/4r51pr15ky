@@ -78,7 +78,7 @@ if (in_array($_SERVER["SERVER_ADDR"] , array('127.0.0.1', 'localhost', "::1"))) 
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'database' => 'arsip_rizky',
+		'database' => 'sisarsip',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,

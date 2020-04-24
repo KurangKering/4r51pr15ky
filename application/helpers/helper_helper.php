@@ -32,24 +32,7 @@ if (!function_exists('hBulan')) {
 		return $daftar;
 	}
 }
-if (!function_exists('hStatusJemaah')) {
-	function hStatusJemaah($status = null) {
-		$daftar =  array(
-			'1' => 'Jemaah',
-			'2' => 'KARU',
-			'3' => 'KAROM',
-			'4' => 'TKHI',
-			'5' => 'TPHI',
-			'6' => 'TPIHI',
-			'7' => 'TPHD / TKHD',
-			'8' => 'PARAMEDIS',
-		);
-		if ($status) {
-			return $daftar[$status];
-		} 
-		return $daftar;
-	}
-}
+
 
 if (!function_exists('hJK')) {
 	function hJK($status = null) {
@@ -65,141 +48,56 @@ if (!function_exists('hJK')) {
 	}
 }
 
-if (!function_exists('hGenRow')) {
-	function hGenRow($data = null) {
-		$rows = "";
-		foreach ($data as $k => $v) {
-			$rows .= 
-			"<tr><th>{$k}</th><td>{$v}</td></tr>";
-		}
-		return $rows;
-	}
-}
-
-
-if (!function_exists('hTopBesar')) {
-	function hTopBesar($data = null) {
-		$arr = array(
-			'1' => '1 Besar Daerah',
-			'5' => '5 Besar Daerah',
-			'10' => '10 Besar Daerah',
-		);
-		if ($data != null) {
-			return $arr[$data];
-		}
-		return $arr;
-	}
-}
-
-if (!function_exists('hUsia')) {
-	function hUsia($data = null) {
-		$arr = array(
-			'1' => 'Dewasa',
-			'2' => 'Tua',
-		);
-		if ($data != null) {
-			return $arr[$data];
-		}
-		return $arr;
-	}
-}
-if (!function_exists('hRegu')) {
-	function hRegu($data = null) {
-		$arr = array(
-			'1' => 'Regu 1',
-			'2' => 'Regu 2',
-			'3' => 'Regu 3',
-			'4' => 'Regu 4',
-
-			
-		);
-		if ($data != null) {
-			return $arr[$data];
-		}
-		return $arr;
-	}
-}
-if (!function_exists('hRombongan')) {
-	function hRombongan($data = null) {
-		$arr = array(
-			'1' => 'Rombongan 1',
-			'2' => 'Rombongan 2',
-			'3' => 'Rombongan 3',
-			'4' => 'Rombongan 4',
-			'5' => 'Rombongan 5',
-			'6' => 'Rombongan 6',
-			'7' => 'Rombongan 7',
-			'8' => 'Rombongan 8',
-			'9' => 'Rombongan 9',
-			'10' => 'Rombongan 10',
+if (!function_exists('hStatusInstansi')) {
+	function hStatusInstansi($status = null) {
+		$daftar =  array(
+			'PNBP' => array('HP', 'HGB'),
+			'BMN' => array('HP'),
 
 		);
-		if ($data != null) {
-			return $arr[$data];
-		}
-		return $arr;
+		if ($status) {
+			return $daftar[$status];
+		} 
+		return $daftar;
 	}
 }
-
-if (!function_exists('hKloter')) {
-	function hKloter($data = null) {
-		$arr = array(
-			'2' => 'Kloter 2',
-			'3' => 'Kloter 3',
-			'4' => 'Kloter 4',
-			'5' => 'Kloter 5',
-			'6' => 'Kloter 6',
-			'7' => 'Kloter 7',
-			'8' => 'Kloter 8',
-			'9' => 'Kloter 9',
-			'10' => 'Kloter 10',
-			'18' => 'Kloter 18',
-			'19' => 'Kloter 19',
-			'20' => 'Kloter 20',
-
+if (!function_exists('indoDate')) {
+	function indoDate ($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = '') {
+		if (trim ($timestamp) == '')
+		{
+			$timestamp = time ();
+		}
+		elseif (!ctype_digit ($timestamp))
+		{
+			$timestamp = strtotime ($timestamp);
+		}
+    # remove S (st,nd,rd,th) there are no such things in indonesia :p
+		$date_format = preg_replace ("/S/", "", $date_format);
+		$pattern = array (
+			'/Mon[^day]/','/Tue[^sday]/','/Wed[^nesday]/','/Thu[^rsday]/',
+			'/Fri[^day]/','/Sat[^urday]/','/Sun[^day]/','/Monday/','/Tuesday/',
+			'/Wednesday/','/Thursday/','/Friday/','/Saturday/','/Sunday/',
+			'/Jan[^uary]/','/Feb[^ruary]/','/Mar[^ch]/','/Apr[^il]/','/May/',
+			'/Jun[^e]/','/Jul[^y]/','/Aug[^ust]/','/Sep[^tember]/','/Oct[^ober]/',
+			'/Nov[^ember]/','/Dec[^ember]/','/January/','/February/','/March/',
+			'/April/','/June/','/July/','/August/','/September/','/October/',
+			'/November/','/December/',
 		);
-		if ($data != null) {
-			return $arr[$data];
+		$replace = array ( 'Sen','Sel','Rab','Kam','Jum','Sab','Min',
+			'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu',
+			'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des',
+			'Januari','Februari','Maret','April','Juni','Juli','Agustus','September',
+			'Oktober','November','Desember',
+		);
+		$date = date ($date_format, $timestamp);
+		$date = preg_replace ($pattern, $replace, $date);
+		if ($suffix) {
+			$date = "{$date} {$suffix}";
 		}
-		return $arr;
-	}
+		return $date;
+	} 
+	
 }
 
 
-if (!function_exists('hAkses')) {
-	function hAkses($akses = null) {
-		$CI =& get_instance();
 
-		
-
-		$pecah = explode("_", $akses);
-		$role = isset($pecah[0]) ? $pecah[0] : null ;
-		$id = isset($pecah[1]) ? $pecah[1] : null;
-
-		$hakAkses = null;
-
-		if ($role == 'kota') {
-			$CI->load->model('M_Kota');
-			if (isset($id)) {
-				$kota = $CI->M_Kota->findOrFail($id);
-
-				$hakAkses = "Kota/Kab {$kota->kota_nama}";
-			}
-		} else if ($role == "prov") {
-			$CI->load->model('M_Provinsi');
-			if (isset($id)) {
-				$provinsi = $CI->M_Provinsi->findOrFail($id);
-
-				$hakAkses = "Provinsi {$provinsi->provinsi_nama}";
-			}
-		}
-		return $hakAkses;
-	}
-}
-
-
-if (!function_exists('hRole')) {
-	function hRole($role = null) {
-
-	}
-}

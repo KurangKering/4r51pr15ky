@@ -11,7 +11,34 @@ class Laporan extends MY_Controller {
 	public function index()
 	{
 		
-		return view('laporan');
+		return view('laporan.index');
+	}
+
+	public function generateLaporan()
+	{
+		$params = $this->input->get();
+
+		$this->load->model('M_Transaksi');
+		$transaksi = $this->M_Transaksi->Laporan($params)->get();
+		if (count($transaksi) < 1 ) {
+			echo "<script>window.close()</script>";
+			die();
+		}
+		$data = array(
+			'transaksi' => $transaksi,
+
+		);
+
+		$view = $this->load->view('laporan/content_laporan', compact('data'), TRUE);
+
+		$this->load->library('PdfGenerator');
+		$filename = "Laporan.pdf";
+		$this->pdfgenerator->generate($view, $filename,TRUE, 'legal', 'landscape');
+	}
+
+	public function showLaporan()
+	{
+		
 	}
 
 }

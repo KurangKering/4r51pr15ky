@@ -2,7 +2,6 @@
 @section('css-export')
 <link rel="stylesheet" href="{{ base_url("assets/modules/datatables/datatables.min.css") }}">
 <link rel="stylesheet" href="{{ base_url("assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css") }}">
-<link rel="stylesheet" href="{{ base_url("assets/modules/prism/prism.css") }}">
 
 
 @endsection
@@ -10,47 +9,38 @@
 <section class="section">
 	<div class="section-header">
 		<h1>Data Pengguna</h1>
-		<div class="section-header-breadcrumb">
-			<div class="breadcrumb-item active"></div>
-		</div>
+		
 	</div>
 
-	<div class="row">
-		
+	<div class="section-body">
+		<div class="card">
+			<div class="card-header">
+				<a href="javascript:void(0)" class="btn btn-primary" id="btn-tambah-pengguna">Tambah Data Pengguna</a>
 
-		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header">
-					<a href="javascript:void(0)" class="btn btn-primary" id="btn-tambah-kota">Tambah Data Pengguna</a>
-
-				</div>
-				
-				<div class="card-body">
-					<table class="table table-hover table-striped" id="table-pengguna">
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-striped" id="table-pengguna">
 						<thead>                                 
 							<tr>
 								<th class="text-center">
-									ID
+									Id
 								</th>
-								<th>Nama</th>
 								<th>Username</th>
-								<th>Hak Akses</th>
+								<th>Nama</th>
+								<th>Role</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-
+							
 						</tbody>
 					</table>
 				</div>
 			</div>
+			
 		</div>
-		
-
 	</div>
-
-
-
 </section>
 <div class="modal fade" id="modalPengguna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog"  role="document">
@@ -66,87 +56,46 @@
 					<form onsubmit="return false">
 						<input type="hidden" id="id-pengguna" value="">
 						
+
 						<div class="form-group">
-							<label for="message-text" class="col-form-label">Provinsi:</label>
-							<select id="input-provinsi" class="form-control"
+							<label for="message-text" class="col-form-label">Nama:</label>
+							<input type="text"  id="input-nama" class="form-control"></input>
+							<div class="error"></div>
 
-							>
-							@foreach ($data['data_provinsi'] as $provinsi)
-							<option value="{{ $provinsi->provinsi_id }}"
-
-								@if ($data['auth']['role_id'] == $provinsi->provinsi_id)
-								selected
-								@endif
-								>{{ $provinsi->provinsi_nama }}</option>
-								@endforeach
-							</select>
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="col-form-label">Username:</label>
+							<input type="text"  id="input-username" class="form-control"></input>
 							<div class="error"></div>
 
 						</div>
 
 						<div class="form-group">
-							<label for="message-text" class="col-form-label">Kota:</label>
-							<select id="input-kota" class="form-control" 
-							@if ($data['auth']['role'] == 'prov')
-							required
-							@endif
-							>
-							<option value=""></option>
-							@foreach ($data['data_kota'] as $kota)
-							<option data-chained="{{ $kota->kota_provinsi_id }}" value="{{ $kota->kota_id }}">{{ $kota->kota_nama }}</option>
-							@endforeach
-						</select>
-						<div class="error"></div>
+							<label for="message-text" class="col-form-label">Password:</label>
+							<input type="password"  id="input-password" class="form-control"></input>
+							<div class="error"></div>
 
-					</div>
+						</div>
 
 
-					<div class="form-group">
-						<label for="message-text" class="col-form-label">Nama:</label>
-						<input type="text"  id="input-nama" class="form-control"></input>
-						<div class="error"></div>
-
-					</div>
-					<div class="form-group">
-						<label for="message-text" class="col-form-label">Username:</label>
-						<input type="text"  id="input-username" class="form-control"></input>
-						<div class="error"></div>
-
-					</div>
-
-					<div class="form-group">
-						<label for="message-text" class="col-form-label">Password:</label>
-						<input type="password"  id="input-password" class="form-control"></input>
-						<div class="error"></div>
-
-					</div>
-
-
-				</form>
+					</form>
+				</div>
 			</div>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" id="btn-submit-kota" class="btn btn-primary">Save changes</button>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" id="btn-submit-kota" class="btn btn-primary">Save changes</button>
+			</div>
 		</div>
 	</div>
 </div>
-</div>
-
 @endsection
 @section('js-export')
-<script src="{{ base_url("assets/modules/datatables/datatables.min.js") }}"></script>
-<script src="{{ base_url("assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js") }}"></script>
-<script src="{{ base_url("assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js") }}"></script>
-<script src="{{ base_url("assets/modules/jquery-ui/jquery-ui.min.js") }}"></script>
-
-<script src="{{ base_url("assets/modules/prism/prism.js") }}"></script>
-<script src="{{ base_url("assets/js/page/bootstrap-modal.js") }}"></script>
-<script src="{{ base_url('assets/jquery_chained-2.x/jquery.chained.min.js') }}"></script>
-
+<script src="{{ base_url('assets/modules/datatables/datatables.min.js') }}"></script>
+<script src="{{ base_url('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ base_url('assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js') }}"></script>
+<script src="{{ base_url('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
 @endsection
 @section('js-inline')
-<script src="{{ base_url('assets/js/page/modules-datatables.js') }}"></script>
 <script>
 	let $tablePengguna = null;
 	let $modalPengguna = null;
@@ -163,10 +112,9 @@
 
 	$(function() {
 
-		$("#input-kota").chained("#input-provinsi");
 
 		$modalPengguna = $("#modalPengguna");
-		$btnTambahPengguna = $("#btn-tambah-kota");
+		$btnTambahPengguna = $("#btn-tambah-pengguna");
 		$btnSubmitPengguna = $("#btn-submit-kota");
 		$ikKota = $("#input-kota");
 		$iNama = $("#input-nama");
@@ -190,10 +138,10 @@
 
 			},
 			"columns": [
-			{"data": "pengguna_id"},
-			{"data": "pengguna_nama"},
-			{"data": "pengguna_username"},
-			{"data": "pengguna_akses"},
+			{"data": "id"},
+			{"data": "nama"},
+			{"data": "username"},
+			{"data": "role"},
 			{"data": "action"},
 			],
 			'columnDefs': [
@@ -237,9 +185,9 @@
 			data = Object.keys(formData).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key])).join('&')
 			var url = "";
 			if (formData.id) {
-				url = '{{ base_url('data-pengguna/update') }}';
+				url = '{{ base_url('pengguna/update') }}';
 			} else {
-				url = '{{ base_url('data-pengguna/store') }}'
+				url = '{{ base_url('pengguna/store') }}'
 			}
 			axios.post(url, data)
 			.then(res => {
@@ -295,25 +243,17 @@
 		clearError();
 		clearData();
 		data = Object.keys(formData).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key])).join('&')
-		axios.post("{{ base_url("data-pengguna/getDataPengguna") }}", data)
+		axios.post("{{ base_url("pengguna/getDataPengguna") }}", data)
 		.then((res) => {
 
 			data = res.data;
 			console.log(data);
-			$iNama.val(data.pengguna_nama);
-			$iUsername.val(data.pengguna_username);
+			$iNama.val(data.nama);
+			$iUsername.val(data.username);
 			$iPassword.val("");
 
-			if (data.kota_id) {
-
-				$iKota.val(data.kota_id);
-			}
-			if (data.provinsi_id) {
-				$iProvinsi.val(data.provinsi_id);
-			}
-
-
-			$idPengguna.val(data.pengguna_id);
+			
+			$idPengguna.val(data.id);
 			$("#modal-title-pengguna").text("Ubah Data Pengguna");
 
 			$modalPengguna.modal("show");
@@ -335,7 +275,7 @@
 					id: id,
 				};
 				data = Object.keys(formData).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key])).join('&')
-				axios.post("{{ base_url("data-pengguna/delete") }}", data)
+				axios.post("{{ base_url("pengguna/delete") }}", data)
 				.then((res) => {
 					Swal.fire({
 						title: 'Deleted!',
@@ -385,6 +325,7 @@
 	
 	
 	
+
 
 </script>
 @endsection

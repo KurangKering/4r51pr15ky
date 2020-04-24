@@ -17,7 +17,8 @@
 		"illuminate/filesystem": "^5.8",
 		"illuminate/events": "^5.8",
 		"illuminate/database": "^5.8",
-		"mistic100/randomcolor": "^1.0"
+		"ozdemir/datatables": "^2.3",
+		"dompdf/dompdf": "^0.8.5"
 	},
 	"autoload": {
 		"classmap": [
