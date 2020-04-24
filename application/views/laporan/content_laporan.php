@@ -849,9 +849,10 @@ td {
 			</td>
 			<td class="center" >KET</td>
 		</tr>
+		<?php $number = 1; ?>
 		<?php foreach ($data['transaksi'] as $key => $transaksi): ?>
 			<tr class="list_row">
-				<td class="center"><?php echo $transaksi->id ?></td>
+				<td class="center"><?php echo $number++ ?></td>
 				<td style="white-space: nowrap"><?php echo indoDate($transaksi->DataPenguasaan->tanggal_masuk, 'd-m-Y') ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->no_berkas ?></td>
 				<td class="center"><?php echo $transaksi->jenis_hak ?></td>
@@ -859,7 +860,7 @@ td {
 				<td><?php echo $transaksi->DataPenguasaan->nama_jalan ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->stp_no_surat ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->stk_no_surat ?></td>
-				<td><?php echo $transaksi->DataPenguasaan->ba_lapangan_no ?></td>
+				<td><?php echo $transaksi->DataPenguasaan->ba_lapangan_no_surat ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->no_risalah_panitia_no_surat ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->no_rpd_no_surat ?></td>
 				<td><?php echo $transaksi->DataPenguasaan->warkah_no_surat ?></td>

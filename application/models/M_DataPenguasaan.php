@@ -23,7 +23,7 @@ class M_DataPenguasaan extends Eloquent
 		'stk_tanggal_masuk',
 		'stk_tanggal_keluar',
 		'stk_file',
-		'ba_lapangan_no',
+		'ba_lapangan_no_surat',
 		'ba_lapangan_file',
 		'no_risalah_panitia_no_surat',
 		'no_risalah_panitia_tanggal',

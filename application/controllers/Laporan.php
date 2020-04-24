@@ -16,10 +16,14 @@ class Laporan extends MY_Controller {
 
 	public function generateLaporan()
 	{
-		$params = $this->input->get();
-
+		$params = $this->input->get('x');
+		$output = array();
+		$params = parse_str(base64_decode($params), $output);
 		$this->load->model('M_Transaksi');
-		$transaksi = $this->M_Transaksi->Laporan($params)->get();
+		$transaksi = $this->M_Transaksi->Laporan($output)->get()
+		->sortBy(function($q) {
+			return $q->DataPenguasaan->tanggal_masuk;
+		});
 		if (count($transaksi) < 1 ) {
 			echo "<script>window.close()</script>";
 			die();

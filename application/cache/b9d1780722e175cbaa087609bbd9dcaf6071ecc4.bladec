@@ -108,6 +108,7 @@ $user = $CI->session->userdata('auth');
 
 	<?php echo $this->yieldContent('js-export'); ?>
 
+	<script src="<?php echo static::e(base_url("assets/modules/bootstrap-daterangepicker/moment.min.js")); ?>"></script>
 	<script src="<?php echo static::e(base_url("assets/modules/bootstrap-daterangepicker/daterangepicker.js")); ?>"></script>
 	<script src="<?php echo static::e(base_url('assets/jquery_chained-2.x/jquery.chained.min.js')); ?>"></script>
 
@@ -135,5 +136,16 @@ $user = $CI->session->userdata('auth');
 
 	</script>
 
+	<script>
+ $(function() {
+ $(".datepickercustom").daterangepicker({
+ singleDatePicker: true,
+ showDropdowns: true,
+ locale: {
+ format: 'DD-MM-YYYY'
+ },
+ });
+ });
+	</script>
 </body>
 </html>

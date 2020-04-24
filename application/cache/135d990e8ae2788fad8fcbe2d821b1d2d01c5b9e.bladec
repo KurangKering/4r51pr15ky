@@ -45,13 +45,13 @@
  <div class="form-group row mb-4">
  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-4">Tanggal Masuk Mulai</label>
  <div class="col-sm-12 col-md-5">
- <input type="text" id="start_date" value="<?php echo static::e(date('Y-m')); ?>-01" name="start_date" class="form-control datepicker">
+ <input type="text" id="start_date"  name="start_date" class="form-control ">
  </div>
  </div>
  <div class="form-group row mb-4">
  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-4">Tanggal Masuk Sampai </label>
  <div class="col-sm-12 col-md-5">
- <input type="text" id="end_date" name="end_date" class="form-control datepicker">
+ <input type="text" id="end_date" name="end_date" class="form-control ">
  
  </div>
  </div>
@@ -99,6 +99,37 @@
 
  $("#jenis_hak").chained("#status_instansi");
 
+ 
+ 
+ iStartDate.daterangepicker({
+ singleDatePicker: true,
+ showDropdowns: true,
+ locale: {
+ format: 'DD-MM-YYYY'
+ },
+ }, function(start, end, label) {
+ iEndDate.daterangepicker({
+ singleDatePicker: true,
+ showDropdowns: true,
+ minDate: start,
+ locale: {
+ format: 'DD-MM-YYYY'
+ },
+
+
+ });
+ });
+
+ iEndDate.daterangepicker({
+ singleDatePicker: true,
+ showDropdowns: true,
+ locale: {
+ format: 'DD-MM-YYYY'
+ },
+ minDate: iStartDate.val(),
+ 
+
+ });
 
 
 
@@ -112,8 +143,9 @@
  end_date: iEndDate.val(),
  };
 
- data = Object.keys(formData).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key])).join('&');				
- url = "<?php echo static::e(base_url('laporan/generateLaporan?')); ?>"+data;
+ data = Object.keys(formData).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key])).join('&');
+ encoded = btoa(data);			
+ url = "<?php echo static::e(base_url('laporan/generateLaporan?x=')); ?>"+encoded;
  window.open(url, "_blank");
 
  });

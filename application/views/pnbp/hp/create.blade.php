@@ -94,7 +94,7 @@
 							
 							<div class="form-group">
 								<label>tanggal_masuk</label>
-								<input type="text"   id="tanggal_masuk" name="tanggal_masuk" class="form-control datepicker" >
+								<input type="text"   id="tanggal_masuk" name="tanggal_masuk" class="form-control datepickercustom" >
 							</div>
 							<div class="form-group">
 								<label>no_berkas</label>
@@ -133,13 +133,13 @@
 
 									<label for="" class="col-sm-2 col-form-label">Tanggal Masuk</label>
 									<div class="col-sm-4">
-										<input type="text"  class="form-control datepicker" id="stp_tanggal_masuk" name="stp_tanggal_masuk" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="stp_tanggal_masuk" name="stp_tanggal_masuk" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="" class="col-sm-2 col-form-label">Tanggal Keluar</label>
 									<div class="col-sm-4">
-										<input type="text"  class="form-control datepicker" id="stp_tanggal_keluar" name="stp_tanggal_keluar" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="stp_tanggal_keluar" name="stp_tanggal_keluar" placeholder="">
 									</div>
 									<label for="" class="col-sm-2 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -159,13 +159,13 @@
 
 									<label for="" class="col-sm-2 col-form-label">Tanggal Masuk</label>
 									<div class="col-sm-4">
-										<input type="text"  class="form-control datepicker" id="stk_tanggal_masuk" name="stk_tanggal_masuk" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="stk_tanggal_masuk" name="stk_tanggal_masuk" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="" class="col-sm-2 col-form-label">Tanggal Keluar</label>
 									<div class="col-sm-4">
-										<input type="text"  class="form-control datepicker" id="stk_tanggal_keluar" name="stk_tanggal_keluar" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="stk_tanggal_keluar" name="stk_tanggal_keluar" placeholder="">
 									</div>
 									<label for="" class="col-sm-2 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -204,7 +204,7 @@
 
 									<label for="" class="col-sm-1 col-form-label">Tanggal</label>
 									<div class="col-sm-2">
-										<input type="text"  class="form-control datepicker" id="no_risalah_panitia_tanggal" name="no_risalah_panitia_tanggal" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="no_risalah_panitia_tanggal" name="no_risalah_panitia_tanggal" placeholder="">
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -223,7 +223,7 @@
 
 									<label for="" class="col-sm-1 col-form-label">Tanggal</label>
 									<div class="col-sm-2">
-										<input type="text"  class="form-control datepicker" id="no_rpd_tanggal" name="no_rpd_tanggal" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="no_rpd_tanggal" name="no_rpd_tanggal" placeholder="">
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -242,7 +242,7 @@
 
 									<label for="" class="col-sm-1 col-form-label">Tanggal</label>
 									<div class="col-sm-2">
-										<input type="text"  class="form-control datepicker" id="warkah_tanggal" name="warkah_tanggal" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="warkah_tanggal" name="warkah_tanggal" placeholder="">
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -261,7 +261,7 @@
 
 									<label for="" class="col-sm-1 col-form-label">Tanggal</label>
 									<div class="col-sm-2">
-										<input type="text"  class="form-control datepicker" id="no_sk_tanggal" name="no_sk_tanggal" placeholder="">
+										<input type="text"  class="form-control datepickercustom" id="no_sk_tanggal" name="no_sk_tanggal" placeholder="">
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
@@ -276,7 +276,7 @@
 							</div>
 							<div class="form-group">
 								<label>tanggal_pengiriman_ke_loket</label>
-								<input type="text"   id="tanggal_pengiriman_ke_loket" name="tanggal_pengiriman_ke_loket" class="form-control datepicker" >
+								<input type="text"   id="tanggal_pengiriman_ke_loket" name="tanggal_pengiriman_ke_loket" class="form-control datepickercustom" >
 							</div>
 
 						</div>

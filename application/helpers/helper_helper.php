@@ -96,7 +96,18 @@ if (!function_exists('indoDate')) {
 		}
 		return $date;
 	} 
-	
+}
+
+if (!function_exists('formatDate')) {
+	function formatDate($date, $format_asal ="d-m-Y", $format_akhir = "Y-m-d") {
+
+		$date = DateTime::createFromFormat($format_asal, $date);
+		if ($date) {
+			return $date->format($format_akhir);
+		}
+		return null;
+		
+	}
 }
 
 

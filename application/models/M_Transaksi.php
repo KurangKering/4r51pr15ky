@@ -31,6 +31,7 @@ class M_Transaksi extends Eloquent
 
 	public function Laporan($conditions)
 	{
+
 		$conditions = array_filter($conditions);
 		$output = $this;
 		if (isset($conditions['status_instansi'])) {
@@ -40,14 +41,20 @@ class M_Transaksi extends Eloquent
 			$output = $output->where('jenis_hak', $conditions['jenis_hak']);
 		}
 		if (isset($conditions['start_date'])) {
-			$output = $output->whereHas('DataPenguasaan', function($q) use($conditions) {
-				$q->where('tanggal_masuk', '>=',$conditions['start_date']);
+			$input = $conditions['start_date'];
+			$date = formatDate($input);
+
+			$output = $output->whereHas('DataPenguasaan', function($q) use($date) {
+				$q->where('tanggal_masuk', '>=', $date);
 			});
 		}
 
 		if (isset($conditions['end_date'])) {
-			$output = $output->whereHas('DataPenguasaan', function($q) use($conditions) {
-				$q->where('tanggal_masuk', '<=', $conditions['end_date']);
+			$input = $conditions['end_date'];
+			$date = formatDate($input);
+
+			$output = $output->whereHas('DataPenguasaan', function($q) use($date) {
+				$q->where('tanggal_masuk', '<=', $date);
 			});
 		}
 		return $output->with('DataPenguasaan', 'DokumenPenerbitan', 'InfoPemilik');
