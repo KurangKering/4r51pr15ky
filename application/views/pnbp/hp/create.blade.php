@@ -38,11 +38,18 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>File KTP</label>
-										<input id="file_ktp" name="file_ktp" type="file" class="form-control">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="file_ktp" name="file_ktp">
+											<label class="custom-file-label" for="file_ktp">Pilih file</label>
+										</div>
+
 									</div>
 									<div class="form-group mb-0">
 										<label>File PBB</label>
-										<input type="file" id="file_pbb" name="file_pbb" class="form-control" >
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="file_pbb" name="file_pbb">
+											<label class="custom-file-label" for="file_pbb">Pilih file</label>
+										</div>
 
 									</div>
 								</div>
@@ -60,23 +67,38 @@
 
 							<div class="form-group">
 								<label>file_pelepasan_hak</label>
-								<input type="file" id="file_pelepasan_hak" name="file_pelepasan_hak" class="form-control" >
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_pelepasan_hak" name="file_pelepasan_hak">
+									<label class="custom-file-label" for="file_pelepasan_hak">Pilih file</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>file_sertifikat_tidak_berlaku</label>
-								<input type="file" id="file_sertifikat_tidak_berlaku" name="file_sertifikat_tidak_berlaku" class="form-control" >
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_sertifikat_tidak_berlaku" name="file_sertifikat_tidak_berlaku">
+									<label class="custom-file-label" for="file_sertifikat_tidak_berlaku">Pilih file</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>file_kib</label>
-								<input type="file" id="file_kib" name="file_kib" class="form-control" >
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_kib" name="file_kib">
+									<label class="custom-file-label" for="file_kib">Pilih file</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>file_surat_penguasaan</label>
-								<input type="file" id="file_surat_penguasaan" name="file_surat_penguasaan" class="form-control" >
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_surat_penguasaan" name="file_surat_penguasaan">
+									<label class="custom-file-label" for="file_surat_penguasaan">Pilih file</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>file_surat_pernyataan</label>
-								<input type="file" id="file_surat_pernyataan" name="file_surat_pernyataan" class="form-control" >
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_surat_pernyataan" name="file_surat_pernyataan">
+									<label class="custom-file-label" for="file_surat_pernyataan">Pilih file</label>
+								</div>
 							</div>
 							
 
@@ -143,7 +165,10 @@
 									</div>
 									<label for="" class="col-sm-2 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="stp_file" name="stp_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="stp_file" name="stp_file">
+											<label class="custom-file-label" for="stp_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 								
@@ -169,7 +194,10 @@
 									</div>
 									<label for="" class="col-sm-2 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="stk_file" name="stk_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="stk_file" name="stk_file">
+											<label class="custom-file-label" for="stk_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 								
@@ -188,7 +216,10 @@
 									
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="ba_lapangan_file" name="ba_lapangan_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="ba_lapangan_file" name="ba_lapangan_file">
+											<label class="custom-file-label" for="ba_lapangan_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -208,7 +239,10 @@
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="no_risalah_panitia_file" name="no_risalah_panitia_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="no_risalah_panitia_file" name="no_risalah_panitia_file">
+											<label class="custom-file-label" for="no_risalah_panitia_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -227,7 +261,10 @@
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="no_rpd_file" name="no_rpd_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="no_rpd_file" name="no_rpd_file">
+											<label class="custom-file-label" for="no_rpd_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -246,7 +283,10 @@
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="warkah_file" name="warkah_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="warkah_file" name="warkah_file">
+											<label class="custom-file-label" for="warkah_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -265,7 +305,10 @@
 									</div>
 									<label for="" class="col-sm-1 col-form-label">File</label>
 									<div class="col-sm-4">
-										<input type="file" class="form-control" id="no_sk_file" name="no_sk_file" placeholder="">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="no_sk_file" name="no_sk_file">
+											<label class="custom-file-label" for="no_sk_file">Pilih file</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -364,8 +407,9 @@
 			});
 
 		});
-
-
+		$(document).on('change', '.custom-file-input', function (event) {
+			$(this).next('.custom-file-label').html(event.target.files[0].name);
+		})
 
 
 	});

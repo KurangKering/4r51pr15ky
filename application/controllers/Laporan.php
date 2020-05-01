@@ -36,7 +36,7 @@ class Laporan extends MY_Controller {
 		$view = $this->load->view('laporan/content_laporan', compact('data'), TRUE);
 
 		$this->load->library('PdfGenerator');
-		$filename = "Laporan.pdf";
+		$filename = "Laporan";
 		$this->pdfgenerator->generate($view, $filename,TRUE, 'legal', 'landscape');
 	}
 

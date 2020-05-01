@@ -270,20 +270,81 @@ class Hp extends MY_Controller {
 			tr.id,
 			tr.jenis_hak, 
 			ip.nama_instansi, 
-			ip.nama_pemohon 
-			FROM transaksi as tr 
+			ip.nama_pemohon,
+			dp.nama_jalan,
+			dp.tanggal_masuk,
+			dp.no_berkas,
+			ip.file_ktp,
+			ip.file_pbb,
+			ip.file_surat_kuasa,
+			ip.file_npup,
+			ip.file_akta_pendirian,
+			ip.file_proposal,
+			ip.file_tanda,
+			ip.file_isian,
+			dop.file_pelepasan_hak,
+			dop.file_sertifikat_tidak_berlaku,
+			dop.file_kib,
+			dop.file_surat_penguasaan,
+			dop.file_surat_pernyataan,
+			dp.stp_file,
+			dp.stk_file,
+			dp.ba_lapangan_file,
+			dp.no_risalah_panitia_file,
+			dp.no_rpd_file,
+			dp.warkah_file,
+			dp.no_sk_file
+
+			FROM transaksi AS tr 
 			JOIN info_pemilik AS ip ON tr.id = ip.transaksi_id
-			WHERE status_instansi = "PNBP" AND jenis_hak = "HP"
+			JOIN data_penguasaan AS dp on tr.id = dp.transaksi_id 
+			JOIN dokumen_penerbitan AS dop ON tr.id = dop.transaksi_id
+			WHERE tr.status_instansi = "PNBP" AND tr.jenis_hak = "HP"
 			');
 
 		$dt->add('action', function($data){
 
+			$urlDetail = base_url('pnbp/hp/detail/'.$data['id']);
 			$urlEdit = base_url('pnbp/hp/edit/'.$data['id']);
 			$urlDelete = base_url('pnbp/hp/delete/'.$data['id']);
+			
+			
 
-			$html = '<a href="'.$urlEdit.'" class="btn btn-sm btn-warning">Ubah</a>
-			<a href="javascript:void(0)" class="btn btn-sm btn-danger" onClick="showDelete('.$data['id'].')">Hapus</a>';
+			$html = '
+			<a title="Detail" href="'.$urlDetail.'" class="btn btn-info"><i class="fas fa-list"></i></a>
+			<a title="Update" href="'.$urlEdit.'" class="btn  btn-warning"><i class="fas fa-pencil-alt"></i></a>
+			<a title="Delete" href="javascript:void(0)" class="btn  btn-danger" onClick="showDelete('.$data['id'].',`'.$data['no_berkas'].'`)"><i class="fas fa-trash"></i></a>';
 			return $html;
+		});
+		$dt->edit('tanggal_masuk', function($q) {
+			return indoDate($q['tanggal_masuk'], 'd-m-Y');
+		});
+		$dt->add('status_dokumen', function($q) {
+			$output = "";
+
+			if (
+				$q['file_ktp'] == "" ||
+				$q['file_pbb'] == "" ||
+
+				$q['file_pelepasan_hak'] == "" ||
+				$q['file_sertifikat_tidak_berlaku'] == "" ||
+				$q['file_kib'] == "" ||
+				$q['file_surat_penguasaan'] == "" ||
+				$q['file_surat_pernyataan'] == "" ||
+				$q['stp_file'] == "" ||
+				$q['stk_file'] == "" ||
+				$q['ba_lapangan_file'] == "" ||
+				$q['no_risalah_panitia_file'] == "" ||
+				$q['no_rpd_file'] == "" ||
+				$q['warkah_file'] == "" ||
+				$q['no_sk_file'] == "") {
+
+				$output = "<div class=\"badge badge-warning\">Tidak Lengkap</div>";
+			} else {
+				$output = "<div class=\"badge badge-success\">Lengkap</div>";
+				
+			}
+			return $output;
 		});
 
 		echo $dt->generate();

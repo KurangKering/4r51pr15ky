@@ -15,19 +15,21 @@
 	<div class="section-body">
 		<div class="card">
 			<div class="card-header">
-				<h4>Daftar HP</h4>
-				<button class="btn btn-primary" type="button" id="btn-tambah">Tambah Data</button>
+				<h4></h4>
+				<div class="card-header-action">
+					<button class="btn btn-primary" type="button" id="btn-tambah">Tambah Data</button>
+				</div>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-striped" id="table-1">
 						<thead>                                 
 							<tr>
-								<th class="text-center">
-									Id
-								</th>
-								<th>Nama Instansi</th>
+								<th>No Berkas</th>
+								<th>Tanggal Masuk</th>
 								<th>Nama Pemohon</th>
+								<th>Nama Jalan</th>
+								<th>Status Dokumen</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -66,18 +68,31 @@
 
 			},
 			"columns": [
-			{"data": "id"},
-			{"data": "nama_instansi"},
+			{"data": "no_berkas"},
+			{"data": "tanggal_masuk"},
 			{"data": "nama_pemohon"},
+			{"data": "nama_jalan"},
+			{"data": "status_dokumen"},
 			{"data": "action"},
 			],
 			'columnDefs': [
+			
 			{
-				"targets": 0,
-				"orderable" : false,
+				"targets": 1,
+				"className" : 'action-no-wrap',
+
 			},
 			{
-				"targets": 3,
+				"targets": 4,
+				"className": "text-center",
+				"searchable" : false,
+				"orderable" : false,
+				"className" : 'action-no-wrap',
+				"className" : "text-center"
+
+			},
+			{
+				"targets": 5,
 				"className": "text-center",
 				"searchable" : false,
 				"orderable" : false,
@@ -97,10 +112,10 @@
 		
 
 	});
-	function showDelete(id) {
+	function showDelete(id, no_berkas) {
 		Swal.fire({
 			title: 'Hapus ?',
-			text: 'Yakin ingin menghapus data ini ???.',
+			text: 'Yakin ingin menghapus data No Berkas : "' + no_berkas + '" ?.',
 			icon: 'question',
 			showCancelButton: true,
 
@@ -133,6 +148,7 @@
 				.catch((error) => {
 					Swal.fire({
 						title: 'Gagal!',
+
 						text: 'Tidak dapat menghapus data ini !!!.',
 						icon: 'error',
 						timer: 1500	,

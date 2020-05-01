@@ -16,6 +16,7 @@ $user = $CI->session->userdata('auth');
 	<!-- CSS Libraries -->
 	@yield('css-export')
 	<link rel="stylesheet" href="{{ base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css') }}">
+	<link rel="stylesheet" href="{{ base_url("assets/modules/ionicons/css/ionicons.min.css") }}">
 
 
 	
@@ -24,12 +25,12 @@ $user = $CI->session->userdata('auth');
 	<link rel="stylesheet" href="{{ base_url('assets/css/components.css') }}">
 
 	@yield('css-inline')
-	{{-- <style>
+	<style>
 		.action-no-wrap {
 			width: 1%;
 			white-space: nowrap;
 		}
-		.main-sidebar .sidebar-brand {
+		/*.main-sidebar .sidebar-brand {
 			text-align: left;
 			margin-left: 10px;
 		}
@@ -38,8 +39,8 @@ $user = $CI->session->userdata('auth');
 		}
 		.main-sidebar .sidebar-brand a{
 			margin-left: 10px;
-		}
-	</style> --}}
+		}*/
+	</style>
 
 </head>
 
